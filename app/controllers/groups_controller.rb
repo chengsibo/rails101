@@ -11,13 +11,13 @@ class GroupsController < ApplicationController
  end
 
  def show
-  @group = Group.find(params[:id])
- end
+    @group = Group.find(params[:id])
+    @posts = @group.posts
+  end
 
- def edit
-
- end
-
+  def edit
+    find_group_and_check_permission
+  end
 
  def create
     @group = Group.new(group_params)
